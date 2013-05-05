@@ -5,7 +5,7 @@
     android:orientation="vertical">
     <fragment 
 	    android:id="@+id/overview"
-	    android:name="dk.partyroulette.thepointsgame.context.OverviewFragment"
+	    android:name="dk.partyroulette.thepointsgame.context.ProfileFragment"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content" />
 	<fragment 

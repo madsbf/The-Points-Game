@@ -31,8 +31,8 @@ public class Profile
 	private static final int START_TYPE_0 = 0;
 	private static final int START_TYPE_7 = 1;
 
-	private static final int PLAYER_TYPE_DEFAULT = 0;
-	private static final int PLAYER_TYPE_COURSERA = 1;
+	public static final int PLAYER_TYPE_DEFAULT = 0;
+	public static final int PLAYER_TYPE_COURSERA = 1;
 
 	public static final String KEY_ID = "id";
 	public static final String KEY_POINTS = "points";
@@ -108,6 +108,7 @@ public class Profile
 				if (e == null) 
 				{
 					object.put(KEY_PLAYER_TYPE, Profile.this.playerType);
+					object.saveInBackground();
 				} 
 				else 
 				{
@@ -147,13 +148,13 @@ public class Profile
 			challengesFinished[i] = false;
 		}
 
-		saveProfileWeb();
+		saveProfileWeb(sharedPreferences);
 		saveProfileLocal(sharedPreferences);
 	}
 
-	private void saveProfileWeb()
+	private void saveProfileWeb(final SharedPreferences sharedPreferences)
 	{
-		ParseObject parseObject = new ParseObject("Profile");
+		final ParseObject parseObject = new ParseObject("Profile");
 		parseObject.put(KEY_ID, id);
 		parseObject.put(KEY_POINTS, points);
 		parseObject.put(KEY_START_TYPE, startType);
@@ -166,14 +167,33 @@ public class Profile
 			parseObject.put(KEY_CHALLENGES_FINISHED + "_" + String.valueOf(i), false);
 		}
 
+		parseObject.saveInBackground(new SaveCallback()
+		{
+			@Override
+			public void done(ParseException arg0) 
+			{
+				id = parseObject.getObjectId();
+				saveIdLocal(sharedPreferences);
+			}
+		});
 		parseObject.saveInBackground();
+	}
+	
+	private void saveIdLocal(SharedPreferences sharedPreferences)
+	{
+		Editor edit = sharedPreferences.edit();
+		edit.putString(KEY_ID, id);
+		edit.commit();
 	}
 
 	private void saveProfileLocal(SharedPreferences sharedPreferences)
 	{
 		Editor edit = sharedPreferences.edit();
 
-		edit.putString(KEY_ID, id);
+		if(id != null && !id.isEmpty())
+		{
+			edit.putString(KEY_ID, id);
+		}
 		edit.putInt(KEY_POINTS, points);
 		edit.putInt(KEY_START_TYPE, startType);
 		edit.putInt(KEY_PLAYER_TYPE, playerType);

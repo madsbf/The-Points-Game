@@ -10,12 +10,14 @@ import dk.partyroulette.thepointsgame.R.id;
 import dk.partyroulette.thepointsgame.R.layout;
 import dk.partyroulette.thepointsgame.R.menu;
 import dk.partyroulette.thepointsgame.dummy.DummyContent;
+import dk.partyroulette.thepointsgame.dummy.DummyProfile;
 import dk.partyroulette.thepointsgame.model.Profile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.ViewConfiguration;
 import android.widget.TextView;
 
@@ -39,10 +41,6 @@ import android.widget.TextView;
 public class ChallengeListActivity extends FragmentActivity
 implements ChallengeListFragment.Callbacks 
 {
-
-	private Profile profile;
-
-
 	/**
 	 * Whether or not the activity is in two-pane mode, i.e. running on a tablet
 	 * device.
@@ -61,40 +59,20 @@ implements ChallengeListFragment.Callbacks
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_challenge_list);
-
-		// HACK til at vise menu-knap
-		try {
-			ViewConfiguration config = ViewConfiguration.get(this);
-			Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
-			if(menuKeyField != null) {
-				menuKeyField.setAccessible(true);
-				menuKeyField.setBoolean(config, false);
-			}
-		} catch (Exception ex) {
-			// Ignore
-		}
-
-
 		Parse.initialize(this, "1P0mM0abV8M3XxmfEA07qzlnRODPb8gQXtpD3O2c", "xDl2RmTKgmwdDTgfwQi3r4H11rAlLsVrc1meJya3"); 
 		ParseAnalytics.trackAppOpened(getIntent());
+		
+		setContentView(R.layout.activity_challenge_list);
+
+		showActionBarMenu();
 
 		if(isFirstRun())
 		{
 			// TODO: First run pop-up
 		}
 
-		if(profile == null)
-		{
-			profile = new Profile(getSharedPreferences("dk.partyroulette.ThePointsGame", MODE_PRIVATE));
-		}
+		Profile profile = DummyProfile.getProfile(this);
 		DummyContent.init(this, profile);
-
-		TextView textDescription = (TextView) findViewById(R.id.textDescription);
-		textDescription.setText(profile.getDescription(this));
-
-		TextView textPoints = (TextView) findViewById(R.id.textPoints);
-		textPoints.setText(String.valueOf(profile.getPoints()));
 
 		if (findViewById(R.id.challenge_detail_container) != null) {
 			// The detail container view will be present only in the
@@ -118,7 +96,61 @@ implements ChallengeListFragment.Callbacks
 		//inflate with your particular xml
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
+		
+		Profile profile = DummyProfile.getProfile(this);
+		MenuItem menuCoursera = menu.findItem(R.id.menu_coursera);
+		
+		switch(profile.getPlayerType())
+		{
+		case Profile.PLAYER_TYPE_COURSERA:
+			menuCoursera.setChecked(true);
+			break;
+		case Profile.PLAYER_TYPE_DEFAULT:
+			menuCoursera.setChecked(false);
+		}
+		
 		return super.onCreateOptionsMenu(menu);
+	}
+
+	/**
+	 * Hack used to show the menu button in the action bar phones with physical buttons.
+	 */
+	private void showActionBarMenu()
+	{
+		try {
+			ViewConfiguration config = ViewConfiguration.get(this);
+			Field menuKeyField = ViewConfiguration.class.getDeclaredField("sHasPermanentMenuKey");
+			if(menuKeyField != null) {
+				menuKeyField.setAccessible(true);
+				menuKeyField.setBoolean(config, false);
+			}
+		} catch (Exception ex) {
+			// Ignore
+		}
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.menu_coursera:
+			Profile profile = DummyProfile.getProfile(this);
+			int playerType = profile.getPlayerType();
+			if(!item.isChecked())
+			{
+				item.setChecked(true);
+				playerType = Profile.PLAYER_TYPE_COURSERA;
+			}
+			else if(playerType == Profile.PLAYER_TYPE_COURSERA)
+			{
+				item.setChecked(false);
+				playerType = Profile.PLAYER_TYPE_DEFAULT;
+			}
+			profile.setPlayerType(playerType, getSharedPreferences("dk.partyroulette.ThePointsGame", MODE_PRIVATE));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 
 
