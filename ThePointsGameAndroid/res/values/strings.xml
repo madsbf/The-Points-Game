@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Points Game</string>
+    <string name="title_challenge_detail">Challenge Detail</string>
+    <string name="challenge_location_description">Go to %1$s to complete the challenge and claim 1 point.</string>
+    
+    <string name="overview_description_start_0">You have %1$d points. You have %2$d days left to finish the challenges below. For each challenge you finish, you get 1 point.</string>
+	<string name="overview_description_start_7">You have %1$d points. You have %2$d days left to finish the challenges below. For each challenge you do not finish, you lose 1 point</string>
+	
+	<string name="settings_coursera">I studied Irrational Behavior on Coursera</string>
+    
+</resources>
