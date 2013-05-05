@@ -1,4 +1,4 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.view;
 
 import android.view.View;
 

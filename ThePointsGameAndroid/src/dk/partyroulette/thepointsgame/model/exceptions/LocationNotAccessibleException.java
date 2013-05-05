@@ -1,4 +1,4 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.model.exceptions;
 
 public class LocationNotAccessibleException extends Exception {
 

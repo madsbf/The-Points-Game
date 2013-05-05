@@ -1,6 +1,10 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.view;
 
 import java.util.List;
+
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.layout;
+import dk.partyroulette.thepointsgame.model.challenges.Challenge;
 
 import android.content.Context;
 import android.graphics.Color;

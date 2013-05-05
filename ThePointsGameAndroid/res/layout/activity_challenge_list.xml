@@ -5,12 +5,12 @@
     android:orientation="vertical">
     <fragment 
 	    android:id="@+id/overview"
-	    android:name="dk.partyroulette.thepointsgame.OverviewFragment"
+	    android:name="dk.partyroulette.thepointsgame.context.OverviewFragment"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content" />
 	<fragment 
 	    android:id="@+id/challenge_list"
-	    android:name="dk.partyroulette.thepointsgame.ChallengeListFragment"
+	    android:name="dk.partyroulette.thepointsgame.context.ChallengeListFragment"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent" />
 </LinearLayout>

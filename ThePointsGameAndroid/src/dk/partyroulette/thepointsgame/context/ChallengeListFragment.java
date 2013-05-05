@@ -1,4 +1,4 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.context;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import dk.partyroulette.thepointsgame.dummy.DummyContent;
+import dk.partyroulette.thepointsgame.view.ChallengeListAdapter;
 
 /**
  * A list fragment representing a list of Challenges. This fragment

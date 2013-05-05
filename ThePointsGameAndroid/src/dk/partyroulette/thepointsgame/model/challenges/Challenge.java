@@ -1,4 +1,4 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.model.challenges;
 
 
 public class Challenge {

@@ -1,6 +1,6 @@
 package dk.partyroulette.thepointsgame.dummy;
 
-import dk.partyroulette.thepointsgame.MathChallenge;
+import dk.partyroulette.thepointsgame.model.challenges.MathChallenge;
 
 public class DummyMathChallenges 
 {

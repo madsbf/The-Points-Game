@@ -1,4 +1,4 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.context;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,7 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.id;
+import dk.partyroulette.thepointsgame.R.layout;
 import dk.partyroulette.thepointsgame.dummy.DummyContent;
+import dk.partyroulette.thepointsgame.model.challenges.Challenge;
 
 /**
  * A fragment representing a single Challenge detail screen.

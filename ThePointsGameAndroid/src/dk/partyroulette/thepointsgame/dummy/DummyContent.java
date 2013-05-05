@@ -7,9 +7,9 @@ import java.util.Map;
 
 import android.content.Context;
 
-import dk.partyroulette.thepointsgame.Challenge;
-import dk.partyroulette.thepointsgame.LocationChallenge;
-import dk.partyroulette.thepointsgame.Profile;
+import dk.partyroulette.thepointsgame.model.Profile;
+import dk.partyroulette.thepointsgame.model.challenges.Challenge;
+import dk.partyroulette.thepointsgame.model.challenges.LocationChallenge;
 
 /**
  * Helper class for providing sample content for user interfaces created by

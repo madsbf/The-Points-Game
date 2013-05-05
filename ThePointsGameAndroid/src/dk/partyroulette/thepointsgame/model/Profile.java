@@ -1,4 +1,4 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.model;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -10,6 +10,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
+
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.string;
 
 import android.content.Context;
 import android.content.SharedPreferences;

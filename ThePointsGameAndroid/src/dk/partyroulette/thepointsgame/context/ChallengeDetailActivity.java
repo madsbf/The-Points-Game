@@ -1,5 +1,8 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.context;
 
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.id;
+import dk.partyroulette.thepointsgame.R.layout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

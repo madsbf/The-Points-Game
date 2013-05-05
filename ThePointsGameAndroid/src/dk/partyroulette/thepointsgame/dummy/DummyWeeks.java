@@ -5,7 +5,7 @@ import java.util.List;
 
 import android.content.Context;
 
-import dk.partyroulette.thepointsgame.Challenge;
+import dk.partyroulette.thepointsgame.model.challenges.Challenge;
 
 public class DummyWeeks 
 {

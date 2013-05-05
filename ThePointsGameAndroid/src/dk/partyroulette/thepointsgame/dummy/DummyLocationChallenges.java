@@ -1,7 +1,7 @@
 package dk.partyroulette.thepointsgame.dummy;
 
 import android.content.Context;
-import dk.partyroulette.thepointsgame.LocationChallenge;
+import dk.partyroulette.thepointsgame.model.challenges.LocationChallenge;
 
 public class DummyLocationChallenges 
 {

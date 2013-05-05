@@ -1,8 +1,13 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.model.challenges;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.string;
+import dk.partyroulette.thepointsgame.model.Location;
+import dk.partyroulette.thepointsgame.model.exceptions.LocationNotAccessibleException;
 
 import android.content.Context;
 import android.location.Address;

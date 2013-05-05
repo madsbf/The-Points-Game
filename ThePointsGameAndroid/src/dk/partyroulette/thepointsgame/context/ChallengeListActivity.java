@@ -1,11 +1,16 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.context;
 
 import java.lang.reflect.Field;
 
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
 
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.id;
+import dk.partyroulette.thepointsgame.R.layout;
+import dk.partyroulette.thepointsgame.R.menu;
 import dk.partyroulette.thepointsgame.dummy.DummyContent;
+import dk.partyroulette.thepointsgame.model.Profile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

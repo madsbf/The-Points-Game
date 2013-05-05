@@ -1,5 +1,7 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.context;
 
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.layout;
 import android.support.v4.app.Fragment;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;

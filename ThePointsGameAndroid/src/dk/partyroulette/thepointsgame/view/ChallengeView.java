@@ -1,5 +1,13 @@
-package dk.partyroulette.thepointsgame;
+package dk.partyroulette.thepointsgame.view;
 
+import dk.partyroulette.thepointsgame.R;
+import dk.partyroulette.thepointsgame.R.drawable;
+import dk.partyroulette.thepointsgame.R.id;
+import dk.partyroulette.thepointsgame.model.challenges.Challenge;
+import dk.partyroulette.thepointsgame.model.challenges.GoodDeedChallenge;
+import dk.partyroulette.thepointsgame.model.challenges.LocationChallenge;
+import dk.partyroulette.thepointsgame.model.challenges.MathChallenge;
+import dk.partyroulette.thepointsgame.model.challenges.RandomChallenge;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
